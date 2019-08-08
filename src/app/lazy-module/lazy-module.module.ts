@@ -16,10 +16,10 @@ const routes: Routes = [
   declarations: [TestComponent],
   imports: [CommonModule, RouterModule.forChild(routes)],
   providers: [
-    {
-      provide: BaseService,
-      useClass: TestService
-    }
+    // {
+    //   provide: BaseService,
+    //   useClass: TestService
+    // }
   ]
 })
 export class LazyModuleModule {}

@@ -12,11 +12,19 @@ export class TestComponent extends BaseWithInjectorServiceComponent
     super();
 
     // Mode 2:
-    this.service2 = injector.get(BaseService);
+    //this.service2 = injector.get(BaseService);
   }
 
   ngOnInit() {
     console.log(!!this.service ? "Service has value" : "Service is null");
-    console.log(!!this.service2 ? "Service2 has value" : "Service2 is null");
+    // console.log(!!this.service2 ? "Service2 has value" : "Service2 is null");
+
+    if (this.service) {
+      if (this.service.log) {
+        this.service.log();
+      } else {
+        console.log("Injected service is not a real service");
+      }
+    }
   }
 }
