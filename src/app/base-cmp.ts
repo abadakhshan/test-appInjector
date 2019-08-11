@@ -1,15 +1,13 @@
-import { BaseService } from "./base-service";
 import { AppInjector } from "./AppInjector";
+import { LoggerServcie } from "./logger.service";
+import { Injector } from "@angular/core";
 
 export abstract class BaseWithInjectorServiceComponent {
-  service: BaseService;
-  constructor() {
-    // Mode 1:
-
+  logger: LoggerServcie;
+  constructor(injector: Injector) {
     try {
-      this.service = AppInjector.injector.get(BaseService);
-    } catch (error) {
-      console.log("can not inject loazyload provided service here");
-    }
+      // this.logger = AppInjector.injector.get(LoggerServcie);
+      this.logger = injector.get(LoggerServcie);
+    } catch (error) {}
   }
 }
